@@ -1,0 +1,6 @@
+{
+  "name": "example-login-flow-post-login",
+  "dependencies": {
+    "@architect/functions": "^1.3.0"
+  }
+}

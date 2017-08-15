@@ -1,0 +1,6 @@
+{
+  "name": "example-login-flow-get-index",
+  "dependencies": {
+    "@architect/functions": "^1.3.0"
+  }
+}

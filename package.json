@@ -1,0 +1,14 @@
+{
+  "name": "arc-example-login-flow",
+  "version": "1.0.0",
+  "scripts": {
+    "create": "AWS_PROFILE=personal AWS_REGION=us-east-1 arc-create",
+    "deploy": "AWS_PROFILE=personal AWS_REGION=us-east-1 arc-deploy",
+    "start": "NODE_ENV=testing AWS_PROFILE=personal AWS_REGION=us-east-1 arc-sandbox"
+  },
+  "author": "Brian LeRoux <b@brian.io>",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@architect/workflows": "^1.0.20"
+  }
+}
