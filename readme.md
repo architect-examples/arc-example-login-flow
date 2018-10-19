@@ -7,5 +7,5 @@ Demonstrates:
 - `200` with an html payload
 - `302` Location redirects
 - middleware pattern
-- `req._url`
+- `arc.http.helpers.url`
 - session storage

@@ -1,6 +1,0 @@
-{
-  "name": "example-login-flow-get-protected",
-  "dependencies": {
-    "@architect/functions": "^1.3.0"
-  }
-}

@@ -1,7 +1,7 @@
 @app
-example-login-flow
+loginflow
 
-@html
+@http
 get /
 get /logout
 get /protected
