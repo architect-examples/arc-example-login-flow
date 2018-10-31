@@ -8,6 +8,6 @@
     "url": "https://github.com/arc-repos/arc-example-login-flow"
   },
   "dependencies": {
-    "@architect/workflows": "^3.5.11"
+    "@architect/architect": "^4.1.0"
   }
 }
