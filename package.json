@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "author": "Brian LeRoux <b@brian.io>",
   "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arc-repos/arc-example-login-flow"
+  },
   "dependencies": {
     "@architect/workflows": "^3.5.11"
   }
