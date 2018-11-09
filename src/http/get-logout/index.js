@@ -1,4 +1,4 @@
-let arc = require('@architect/functions')
+let arc = require("@architect/functions")
 let url = arc.http.helpers.url
 
 function route(req, res) {
