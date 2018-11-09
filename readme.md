@@ -13,7 +13,7 @@ Demonstrates:
 
 ## Usage
 
-  npm i
-  npx sandbox
+    npm i
+    npx sandbox
 
 Then visit the URL presented and use 'admin@example.com' and 'admin' as the email and password.
