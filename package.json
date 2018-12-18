@@ -8,7 +8,8 @@
     "url": "https://github.com/arc-repos/arc-example-login-flow"
   },
   "dependencies": {
-    "@architect/architect": "^4.1.0"
+    "@architect/architect": "^4.4.9",
+    "@architect/functions": "git+https://github.com/arc-repos/arc-functions.git"
   },
   "prettier": {
     "semi": false,

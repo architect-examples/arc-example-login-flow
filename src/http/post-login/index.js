@@ -1,12 +1,14 @@
-let arc = require("@architect/functions")
-let url = arc.http.helpers.url
+let arc = require('@architect/functions')
 
-function route(req, res) {
-	let isLoggedIn = req.body.email === "admin@example.com" && req.body.password === "admin"
-	res({
-		session: { isLoggedIn },
-		location: url(`/`)
-	})
+exports.handler = async function http(request) {
+  let session = await arc.http.session.read(request)
+  let isLoggedIn = request.body.email === 'admin@example.com' && request.body.password === 'admin'
+  session.isLoggedIn = isLoggedIn
+  const location = isLoggedIn ? '/' : '/login'
+  let cookie = await arc.http.session.write(session)
+  return {
+    cookie,
+    status: 302,
+    location
+  }
 }
-
-exports.handler = arc.http(route)
