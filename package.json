@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@architect/architect": "^4.4.9",
-    "@architect/functions": "git+https://github.com/arc-repos/arc-functions.git"
+    "@architect/functions": "^1.11.1"
   },
   "prettier": {
     "semi": false,
