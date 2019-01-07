@@ -24,7 +24,8 @@ exports.handler = async function http(req) {
   `
 
   return {
-    type: 'text/html',
+    type: 'text/html; charset=utf8',
+    status: 200,
     body: `
 	<body>
 		<h1>Login Demo</h1>
