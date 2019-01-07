@@ -25,7 +25,11 @@ async function showProtectedPage(request) {
 		<p>Only logged in users can visit this page!</p>
 		<p><a href="${url('/logout')}">logout</a></p>
 	</body>`
-  return respond.makeResponse(protectedPage)
+  return {
+    status: 200,
+    body: protectedPage,
+    type: 'text/html; charset=utf8'
+  }
 }
 
 exports.handler = arc.middleware(requireLogin, showProtectedPage)
