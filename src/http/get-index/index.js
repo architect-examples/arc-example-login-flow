@@ -13,7 +13,9 @@ exports.handler = async function http(req) {
 	</p>`
 
   var notLoggedInPage = `
-  	<h2>Logged out</h2>	
+    <h2>Logged out</h2>	
+    <p>You can try and visit <a href=${url('/protected')}>protected</a> but you won't be able to until you log in!</a>
+    <p>PS. The email is 'admin@example.com', and the password is 'admin'</p>  
     <form action=${url('/login')} method=post>
       <label for=email>Email</label>
       <input type=text name=email>
