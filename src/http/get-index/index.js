@@ -1,41 +1,22 @@
-let arc = require("@architect/functions")
+let arc = require('@architect/functions')
 let url = arc.http.helpers.url
 
-// Callback style works too
-// function index(req, res) {
-//   var header = `<h1>Login Demo</h1>`
-//   var protec = `<a href=${url('/protected')}>protected</a>`
-//   var logout = `<a href=${url('/logout')}>logout</a>`
-//   var nav = `<p>${protec} | ${logout}</p>`
-
-//   var form = `
-//     <form action=${url('/login')} method=post>
-//       <label for=email>Email</label>
-//       <input type=text name=email>
-//       <label for=password>Password</label>
-//       <input type=password name=password>
-//       <button>Login</button>
-//     </form>
-//   `
-
-//   res({
-//     html: `${header} ${req.session.isLoggedIn? nav : form}`
-//   })
-// }
-
-// exports.handler = arc.http(index)
-
 exports.handler = async function http(req) {
-	let state = await arc.http.session.read(req)
-	let isLoggedIn = !!state.isLoggedIn
+  let state = await arc.http.session.read(req)
+  let isLoggedIn = !!state.isLoggedIn
 
-	var header = `<h1>Login Demo</h1>`
-	var protec = `<a href=${url("/protected")}>protected</a>`
-	var logout = `<a href=${url("/logout")}>logout</a>`
-	var nav = `<p>${protec} | ${logout}</p>`
+  var loggedInPage = `
+	<h2>You're logged in</h2>
+  	<p>
+	  <a href=${url('/protected')}>protected</a>
+	  <a href=${url('/logout')}>logout</a>
+	</p>`
 
-	var form = `
-    <form action=${url("/login")} method=post>
+  var notLoggedInPage = `
+    <h2>Logged out</h2>	
+    <p>You can try and visit <a href=${url('/protected')}>protected</a> but you won't be able to until you log in!</a>
+    <p>PS. The email is 'admin@example.com', and the password is 'admin'</p>  
+    <form action=${url('/login')} method=post>
       <label for=email>Email</label>
       <input type=text name=email>
       <label for=password>Password</label>
@@ -44,8 +25,13 @@ exports.handler = async function http(req) {
     </form>
   `
 
-	return {
-		type: "text/html",
-		body: `${header} ${isLoggedIn ? nav : form}`
-	}
+  return {
+    type: 'text/html; charset=utf8',
+    status: 200,
+    body: `
+	<body>
+		<h1>Login Demo</h1>
+		${isLoggedIn ? loggedInPage : notLoggedInPage}
+	<body>`
+  }
 }

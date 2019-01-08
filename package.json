@@ -8,6 +8,17 @@
     "url": "https://github.com/arc-repos/arc-example-login-flow"
   },
   "dependencies": {
-    "@architect/architect": "^4.1.0"
+    "@architect/architect": "^4.4.9",
+    "@architect/functions": "^1.11.1"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true,
+    "tabWidth": 2,
+    "useTabs": false,
+    "trailingComma:": "es5",
+    "bracketSpacing": false,
+    "endOfLine": "lf",
+    "printWidth": 1000
   }
 }
