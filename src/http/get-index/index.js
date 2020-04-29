@@ -4,8 +4,6 @@ let url = arc.http.helpers.url
 exports.handler = arc.http.async(route)
 
 async function route(req) {
-  let state = await arc.http.session.read(req)
-  let isLoggedIn = !!state.isLoggedIn
 
   var loggedInPage = `
 	<h2>You're logged in</h2>
@@ -28,12 +26,10 @@ async function route(req) {
   `
 
   return {
-    type: 'text/html; charset=utf8',
-    status: 200,
-    body: `
+    html: `
 	<body>
 		<h1>Login Demo</h1>
-		${isLoggedIn ? loggedInPage : notLoggedInPage}
+		${req.session.isLoggedIn ? loggedInPage : notLoggedInPage}
 	<body>`
   }
 }
