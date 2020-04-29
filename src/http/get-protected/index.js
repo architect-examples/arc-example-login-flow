@@ -1,14 +1,12 @@
 let arc = require('@architect/functions')
 let url = arc.http.helpers.url
 
-async function requireLogin(request) {
-  let state = await arc.http.session.read(request)
-
-  if (!state.isLoggedIn) {
+async function requireLogin(req) {
+  console.log('state:', req.session)
+  if (req.session.isLoggedIn === false) {
     console.log(`Attempt to access protected page without logging in!`)
     // Return a response, so middleware processing ends
     return {
-      status: 302,
       location: url(`/`)
     }
   }
@@ -19,17 +17,14 @@ async function requireLogin(request) {
 async function showProtectedPage(request) {
   console.log(`Showing dashboard`)
 
-  let protectedPage = `
+  let html = `
 	<body>
 		<h1>Dashboard</h1>
 		<p>Only logged in users can visit this page!</p>
 		<p><a href="${url('/logout')}">logout</a></p>
 	</body>`
-  return {
-    status: 200,
-    body: protectedPage,
-    type: 'text/html; charset=utf8'
-  }
+
+  return { html }
 }
 
-exports.handler = arc.middleware(requireLogin, showProtectedPage)
+exports.handler = arc.http.async(requireLogin, showProtectedPage)

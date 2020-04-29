@@ -1,13 +1,11 @@
 let arc = require('@architect/functions')
 let url = arc.http.helpers.url
 
-exports.handler = async function route(request) {
-  let session = await arc.http.session.read(request)
-  session.isLoggedIn = false
-  let cookie = await arc.http.session.write(session)
+exports.handler = arc.http.async(route)
+
+async function route(request) {
   return {
-    cookie,
-    status: 302,
+    session: {},
     location: url('/')
   }
 }

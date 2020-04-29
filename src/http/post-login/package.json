@@ -1,7 +1,5 @@
 {
-  "name": "loginflow-post-login",
   "dependencies": {
-    "@architect/data": "^2.0.8",
-    "@architect/functions": "^1.9.12"
+    "@architect/functions": "latest"
   }
 }

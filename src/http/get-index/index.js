@@ -1,7 +1,9 @@
 let arc = require('@architect/functions')
 let url = arc.http.helpers.url
 
-exports.handler = async function http(req) {
+exports.handler = arc.http.async(route)
+
+async function route(req) {
   let state = await arc.http.session.read(req)
   let isLoggedIn = !!state.isLoggedIn
 
