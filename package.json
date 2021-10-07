@@ -11,7 +11,7 @@
     "start": "sandbox"
   },
   "dependencies": {
-    "@architect/functions": "^3.13.10",
-    "@architect/sandbox": "latest"
+    "@architect/functions": "^4.0.0",
+    "@architect/sandbox": "^4.1.1"
   }
 }

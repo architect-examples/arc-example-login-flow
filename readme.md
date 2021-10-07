@@ -1,6 +1,6 @@
 # arc-example-login-flow
 
-Example of `.arc` defined HTTP functions for `Content-Type: text/html`.
+Example of `app.arc` defined HTTP functions for `Content-Type: text/html`.
 
 ## Usage
 
