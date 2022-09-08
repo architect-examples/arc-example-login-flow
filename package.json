@@ -12,6 +12,6 @@
   },
   "dependencies": {
     "@architect/functions": "^4.0.0",
-    "@architect/sandbox": "^4.1.1"
+    "@architect/sandbox": "^5.3.4"
   }
 }
